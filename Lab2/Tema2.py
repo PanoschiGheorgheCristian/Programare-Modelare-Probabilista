@@ -12,12 +12,19 @@ X = []
 
 for i in range(10000):
     random_nr = np.random.rand()
-    if(random_nr <= 0.4):
+    if random_nr <= 0.4 :
         X.append(M1[i])
     else:
         X.append(M2[i])
 
 x = np.array(X)
 
+plt.subplot(1,2,1)
+plt.plot(M1)
+
+plt.subplot(1,2,2)
+plt.plot(M2)
+
 az.plot_posterior(x)
+print(np.std(X))
 plt.show()
