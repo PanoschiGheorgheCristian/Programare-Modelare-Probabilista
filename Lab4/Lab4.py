@@ -12,7 +12,7 @@ if __name__ == '__main__':
     model = pm.Model()
     with model:
         clienti = pm.Poisson('CL', 20)
-        plata = pm.Normal('P', 0.017, 0.0083)
+        plata = pm.TruncatedNormal('P', 0.017, 0.0083, lower=0)
         cook = pm.Exponential('CO', 1/alf)
         # Serve este timpul necesar ca un client sa fie servit, de cand intra in magazin si pana intra
         serve = pm.Deterministic('S', plata + cook)
